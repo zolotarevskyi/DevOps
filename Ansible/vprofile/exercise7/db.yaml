@@ -25,7 +25,7 @@
       state: present
       login_unix_socket: /var/lib/mysql/mysql.sock
 
-   - name: Create database user with a name 'vprofile'
+   - name: Create a database user with a name 'vprofile'
      community.mysql.mysql_user:
       name: vprofile
       password: 12345
