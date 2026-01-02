@@ -46,3 +46,8 @@
         priv: "*.*:ALL"
         state: present
         login_unix_socket: /var/lib/mysql/mysql.sock
+      register: dbout
+
+    - name: print dbout variable
+      debug:
+        var: dbout        
