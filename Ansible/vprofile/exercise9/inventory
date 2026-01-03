@@ -1,7 +1,7 @@
-web01 ansible_host=172.31.23.137 
-web02 ansible_host=172.31.17.193 
-db01 ansible_host=172.31.19.79 
-web03 ansible_host=172.31.34.221 ansible_user=ubuntu
+web01 ansible_host=172.31.43.214 
+web02 ansible_host=172.31.39.112 
+db01 ansible_host=172.31.35.160 
+#web03 ansible_host=172.31.34.221 ansible_user=ubuntu
 
 [websrvgrp]
 web01
