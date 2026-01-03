@@ -1,14 +1,13 @@
 ---
-name: Provisioning servers
-hosts: all
-become: yes
+- name: Provisioning servers
+  hosts: all
+  become: yes
   tasks:
     - name: Install NTP agent on CentOS
       yum:
         name: chrony
         state: present
       when: ansible_distribution == "CentOS"
-
 
     - name: Install NTP agent on Ubuntu
       apt:
@@ -30,5 +29,3 @@ become: yes
         state: started
         enabled: yes
       when: ansible_distribution == "Ubuntu"
-
-
