@@ -11,4 +11,4 @@
         var: ansible_memory_mb.real.free
       - name: Print processor name
       debug:
-        var: ansible_processes[2]
+        var: ansible_processor[2]
