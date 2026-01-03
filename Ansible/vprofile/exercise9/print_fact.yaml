@@ -1,8 +1,11 @@
 ---
 - name: Learning fact variables
   hosts: all
-  #gather_facts: False
+  #gather_facts: no
   tasks:
     - name: Print OS names
       debug:
         var: ansible_distribution
+    - name: Print RAM memory
+      debug:
+        var: ansible_memory_mb.real.free
