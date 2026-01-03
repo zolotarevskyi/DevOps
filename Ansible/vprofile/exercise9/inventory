@@ -1,20 +1,26 @@
-web01 ansible_host=172.31.43.214 
-web02 ansible_host=172.31.39.112 
-db01 ansible_host=172.31.35.160 
-#web03 ansible_host=172.31.34.221 ansible_user=ubuntu
+all:
+ hosts:
+  web01:
+   ansible_host: 172.31.43.214
+  web02:
+   ansible_host: 172.31.39.112
+  db01:
+   ansible_host: 172.31.35.160
 
-[websrvgrp]
-web01
-web02
-web03
+ children:
+  webservers:
+   hosts:
+    web01:
+    web02:
 
-[dbsrvgrp]
-db01
+  dbservers:
+   hosts:
+    db01:
 
-[dc_ohio:children]
-websrvgrp
-dbsrvgrp
-
-[dc_ohio:vars]
-ansible_user=centos
-ansible_ssh_private_key_file=vprofile-key.pem
+  dc_oregon:
+   children:
+    webservers:
+    dbservers:
+   vars:
+    ansible_user: ec2-user
+    ansible_ssh_private_key_file: client-key.pem
