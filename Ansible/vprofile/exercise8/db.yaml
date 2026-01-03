@@ -6,7 +6,7 @@
   vars:
     dbname: electric
     dbuser: current
-    dbpass: teska
+    dbpass: tesla
 
   tasks:
     - name: Print db name
