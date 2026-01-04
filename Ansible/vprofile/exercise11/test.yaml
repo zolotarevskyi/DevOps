@@ -1,0 +1,21 @@
+
+---
+- name: Test task
+  hosts: all
+  become: true
+  tasks:
+    - name: Add users
+      ansible.builtin.user:
+        name: "{{ item.name }}"
+        state: present
+        groups: "{{ item.groups }}"
+        uid: "{{ item.uid }}"
+      register: result
+      loop:
+        - { name: 'testuser1', groups: 'wheel', uid: 70 }
+        - { name: 'testuser2', groups: 'root', uid: 10 }
+
+    - name: Print about variable
+      ansible.builtin.debug:
+       msg: User {{ item.name }} 
+        var: result

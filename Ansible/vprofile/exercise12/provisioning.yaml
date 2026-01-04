@@ -41,3 +41,8 @@
         state: started
         enabled: yes
       when: ansible_distribution == "Ubuntu"
+
+    - name: Banner file
+      ansible.builtin.copy:
+        content: '# This server is managed by ansible. NO MANYAL CHANGES PLEASE!'
+        dest: /etc/motd
