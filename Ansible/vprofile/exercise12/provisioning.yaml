@@ -28,7 +28,7 @@
         - zip
         - unzip
 
-      - name: Start service on CentOS
+    - name: Start service on CentOS
       service:
         name: chronyd
         state: started
@@ -73,7 +73,4 @@
         name: ntp
         state: restarted
         enabled: yes
-      when: ansible_distribution == "Ubuntu"  
-
-
-        
+      when: ansible_distribution == "Ubuntu"
