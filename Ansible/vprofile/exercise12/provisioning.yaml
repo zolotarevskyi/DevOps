@@ -74,3 +74,8 @@
         state: restarted
         enabled: yes
       when: ansible_distribution == "Ubuntu"
+
+    - name: Create a folder
+      ansible.builtin.file:
+        path: /opt/test21
+        state: directory
