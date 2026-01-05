@@ -3,7 +3,7 @@
   hosts: all
   become: yes
   vars:
-    dir1: /opt/dir22
+    mydir: /opt/dir22
   tasks:
     - name: Install NTP agent on CentOS
       yum:
@@ -72,7 +72,7 @@
 
     - name: Dump a file
       copy:
-        files: files/myfile.txt
+        src: files/myfile.txt
         dest: /tmp/myfile.txt
   
   handlers:
