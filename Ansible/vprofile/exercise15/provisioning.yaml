@@ -3,6 +3,7 @@
   hosts: all
   become: true
   roles:
+    - geerlingguy.java
     - role: post-install
       vars:
         ntp0: "0.in.pool.ntp.org"
