@@ -2,6 +2,8 @@
 - name: Provisioning servers
   hosts: all
   become: yes
+  vars:
+    dir1: /opt/dir22
   tasks:
     - name: Install NTP agent on CentOS
       yum:
@@ -49,7 +51,7 @@
 
     - name: Create a folder
       ansible.builtin.file:
-        path: /opt/test21
+        path: "{{ mydir }}"
         state: directory    
 
     - name: Deploy ntp agent cont on CentOS
@@ -68,6 +70,11 @@
       when: ansible_distribution == "Ubuntu"
       notify: reStart service on Ubuntu
 
+    - name: Dump a file
+      copy:
+        files: files/myfile.txt
+        dest: /tmp/myfile.txt
+  
   handlers:
     - name: reStart service on CentOS
       service:
