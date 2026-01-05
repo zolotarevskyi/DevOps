@@ -6,9 +6,9 @@
         name: sample
         region: eu-central-1
       register: keyout
-    - name: Print the key
-      debug:
-        var: keyout
+    #- name: Print the key
+    #  debug:
+    #    var: keyout
     - name: Save the key
       copy:
         content: "{{ keyout.key.private_key }}"
