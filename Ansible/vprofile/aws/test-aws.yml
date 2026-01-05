@@ -4,3 +4,4 @@
     - name: Create a key pair
       ec2_key:
         name: sample
+        region: eu-central-1
