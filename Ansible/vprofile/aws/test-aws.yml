@@ -5,3 +5,7 @@
       ec2_key:
         name: sample
         region: eu-central-1
+      register: keyout
+    - name: Print the key
+      debug:
+        var: keyout
