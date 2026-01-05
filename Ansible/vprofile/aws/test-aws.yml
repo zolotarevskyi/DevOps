@@ -6,11 +6,28 @@
         name: sample
         region: eu-central-1
       register: keyout
+
     #- name: Print the key
     #  debug:
     #    var: keyout
+
     - name: Save the key
       copy:
         content: "{{ keyout.key.private_key }}"
         dest: sample.pem
       when: keyout.changed
+
+    - name: Start an instance
+      amazon.aws.ec2_instance:
+        name: "public-compute-instance"
+        key_name: "sample"
+        #vpc_subnet_id: subnet-5ca1ab1e
+        instance_type: t2.micro
+        security_group: default
+        #network_interfaces:
+        #  - assign_public_ip: true
+        image_id: ami-015f3aa67b494b27e
+        exact_count: 1
+        region: eu-central-1
+        tags:
+          Environment: Testing
